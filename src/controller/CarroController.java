@@ -7,6 +7,7 @@ import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import dao.CarroDao;
+import dao.MarcaDao;
 import dominio.Carro;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,9 +15,12 @@ import lombok.Setter;
 @Resource
 public class CarroController {
 
-	public CarroController(Result result, CarroDao carroDao) {
+	private MarcaDao marcaDao;
+
+	public CarroController(Result result, CarroDao carroDao, MarcaDao marcaDao) {
 		this.carroDao = carroDao;
 		this.result = result;
+		this.marcaDao = marcaDao;
 	}
 	
 	private CarroDao carroDao  = new CarroDao();
@@ -27,8 +31,11 @@ public class CarroController {
 
 	@Path("/form")
 	public void formulario() {
-
+		result.include("marcasList", marcaDao.pegaTodos());
 	}
+	
+	
+	
 
 	@Post
 	public void adiciona(Carro carro) {

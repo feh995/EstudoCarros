@@ -8,12 +8,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class Carro {
-	private Marca marca;
+	private String marca;
 	
 	private String modelo;
 	
 	private double preco;
 	
-	private int anoFabricacao;
-	private int anoModelo;
+	private boolean direcao;
+	
+	private String  cor;
 }
