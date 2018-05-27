@@ -19,9 +19,6 @@
 
 <form action="<c:url value="/carro/adiciona" />" method="post">
 
-<c:forEach var="carro" items="${carroList}">
-			<tr>
-				<td>${carro.marca}</td>
 
 <select name="country">
    <c:forEach items="${countries}" var="country">

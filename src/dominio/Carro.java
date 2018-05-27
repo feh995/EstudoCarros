@@ -17,4 +17,6 @@ public class Carro {
 	private boolean direcao;
 	
 	private String  cor;
+	
+	private int id;
 }
